@@ -9,5 +9,25 @@ There is no automated test for this one, this is more for you to understand time
 */
 
 function calculateTime(n) {
-    return 0.01;
+    let currentDate = new Date();
+    let countStart = currentDate.getTime();
+    //console.log("CountStartInM/s: ", countStart);
+    let sum = 0;
+    for (let i = 1; i <= n; i++){
+        sum += i;
+        
+    }
+    let currentDate2 = new Date();
+    let countEnd = currentDate2.getTime();
+   // console.log("CountEndInM/s: ", countEnd);
+    
+    
+    let calculateTimeinSeconds = (countEnd - countStart);
+    console.log(sum);
+    console.log("Time Taken for N = ",n, calculateTimeinSeconds, "sec");
+    return 0.1;
 }
+calculateTime(10);
+calculateTime(100);
+calculateTime(100000);
+calculateTime(1000000000);

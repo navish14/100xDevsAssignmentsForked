@@ -6,7 +6,12 @@
 */
 
 function countVowels(str) {
-    // Your code here
-}
+  // Your code here
+  let vowels = ['a','e','i','o','u'];
+  str = str.toLowerCase().split('');
 
+  let count = str.filter(str => vowels.includes(str)).length;
+  return count;
+}
+//countVowels("navin");
 module.exports = countVowels;

@@ -6,7 +6,14 @@
 */
 
 function findLargestElement(numbers) {
-    
+    let bigNum = numbers[0];
+    for (let i = 0; i < numbers.length; i++){
+        if (numbers[i] > bigNum){
+            bigNum = numbers[i];
+        }
+    }
+    return bigNum;
 }
-
+console.log("navin");
+//findLargestElement(num);
 module.exports = findLargestElement;
