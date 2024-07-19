@@ -16,6 +16,79 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+      this.result = 0; // Initialize result to 0
+  }
+
+  // Method to add a value to the result
+  add(value) {
+      this.result += value;
+      return this.result;
+  }
+
+  // Method to subtract a value from the result
+  subtract(value) {
+      this.result -= value;
+      return this.result;
+  }
+
+  // Method to multiply the result by a value
+  multiply(value) {
+      this.result *= value;
+      return this.result;
+  }
+
+  // Method to divide the result by a value
+  divide(value) {
+      if (value !== 0) {
+          this.result /= value;
+          return this.result;
+      } else {
+        throw new Error("Cannot divide by zero. Please choose a non-zero divisor.");
+      }
+  }
+  // Method to clear the result
+  clear() {
+    return this.result = 0;
+  }
+  // Method to get the current result
+  getResult() {
+    return this.result;
+}
+
+// Method to evaluate a string expression with multi-arithmetic operations
+calculate(expression) {
+    try {
+        // Remove any extra spaces from the expression
+        const cleanedExpression = expression.replace(/\s+/g, '');
+        
+        // Check if the expression contains division by zero
+        if (cleanedExpression.includes('/0')) {
+          throw new Error("Cannot divide by zero. Please choose a non-zero divisor.");
+      }
+        // Evaluate the expression using JavaScript's built-in eval function
+        this.result = eval(cleanedExpression);
+        return this.result;
+    } catch (error) {
+        throw new Error("Invalid expression. Please check your input.");
+    }
+}
+}
+
+// Example usage:
+// const myCalculator = new Calculator();
+// console.log("add " +myCalculator.add(5)); // 5
+// console.log("sub " +myCalculator.subtract(2)); // 3
+// console.log("multiply " +myCalculator.multiply(4)); // 12
+// console.log("divide " +myCalculator.divide(3)); // 4
+// console.log("Result = " + myCalculator.getResult());
+// console.log("Clear "+myCalculator.clear());//0
+// console.log("add " +myCalculator.add(8));//8
+// console.log("Result = " + myCalculator.getResult());
+// console.log("Clear "+myCalculator.clear());//0
+// console.log("Evaluate 10 +   2 *    (   6 - (4 + 1) / 2) + 7 = " +myCalculator.calculate("10 +   2 *    (   6 - (4 + 1) / 2) + 7"));
+
+
 
 module.exports = Calculator;
